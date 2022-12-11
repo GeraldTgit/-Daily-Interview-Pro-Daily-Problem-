@@ -1,3 +1,4 @@
+#Given a list, find the k-th largest element in the list.
 def findKthLargest(nums, k):
   # Fill this in.
   less_nums = []
