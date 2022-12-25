@@ -1,0 +1,62 @@
+#I've been trying to solve this Python quiz for the past  hours. I get tired and came across Open Chat AI GPT. I send the question to them and they solve it within seconds
+
+#You are given a string s, and an integer k. Return the length of the longest substring in s that contains at most k distinct characters.
+
+#For instance, given the string:
+
+#aabcdefff and k = 3, then the longest substring with 3 distinct characters would be defff. The answer should be 5.
+
+def longest_substring_with_k_distinct_characters(s, k):
+
+  max_length = 0
+
+  start = 0
+
+  end = 0
+
+  char_count = {}
+
+
+
+  while end < len(s):
+
+    char = s[end]
+
+    if char in char_count:
+
+      char_count[char] += 1
+
+    else:
+
+      char_count[char] = 1
+
+    end += 1
+
+
+
+    while len(char_count) > k:
+
+      char = s[start]
+
+      char_count[char] -= 1
+
+      if char_count[char] == 0:
+
+        del char_count[char]
+
+      start += 1
+
+
+
+    max_length = max(max_length, end - start)
+
+
+
+  return max_length
+
+
+
+   
+print(longest_substring_with_k_distinct_characters('aabcdefffghi', 3))
+
+# 5 (because 'defff' has length 5 with 3 characters)
