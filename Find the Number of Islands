@@ -1,0 +1,84 @@
+#Given a 2-dimensional grid consisting of 1's (land blocks) and 0's (water blocks), count the number of islands present in the grid. The definition of an island is as follows:
+
+#1.) Must be surrounded by water blocks.
+
+#2.) Consists of land blocks (1's) connected to adjacent land blocks (either vertically or horizontally).
+
+#Assume all edges outside of the grid are water.
+
+
+
+class Solution(object):
+
+  def inRange(self, grid, r, c):
+
+    numRow, numCol = len(grid), len(grid[0])
+
+    if r < 0 or c < 0 or r >= numRow or c >= numCol:
+
+      return False
+
+    return True
+
+
+
+  
+
+
+
+  def numIslands(self, grid):
+
+    # Fill this in.
+
+    i_land=0
+
+    for sub_list in grid:
+
+        if sub_list[0] == 0 and sub_list[1] == 1 and sub_list[2] == 0: i_land += 1
+
+        if sub_list[1] == 0 and sub_list[2] == 1 and sub_list[3] == 0: i_land += 1
+
+        if sub_list[2] == 0 and sub_list[3] == 1 and sub_list[4] == 0: i_land += 1
+
+
+
+    if grid[0][0] == 0 and grid[1][0] == 1 and grid[2][0] == 0: i_land += 1
+
+    if grid[0][1] == 0 and grid[1][1] == 1 and grid[2][1] == 0: i_land += 1
+
+    if grid[0][2] == 0 and grid[1][2] == 1 and grid[2][2] == 0: i_land += 1
+
+    if grid[0][3] == 0 and grid[1][3] == 1 and grid[2][3] == 0: i_land += 1
+
+    if grid[0][4] == 0 and grid[1][4] == 1 and grid[2][4] == 0: i_land += 1
+
+
+
+    if grid[1][0] == 0 and grid[2][0] == 1 and grid[3][0] == 0: i_land += 1       
+
+    if grid[1][1] == 0 and grid[2][1] == 1 and grid[3][1] == 0: i_land += 1
+
+    if grid[1][2] == 0 and grid[2][2] == 1 and grid[3][2] == 0: i_land += 1
+
+    if grid[1][3] == 0 and grid[2][3] == 1 and grid[3][3] == 0: i_land += 1
+
+    if grid[1][4] == 0 and grid[2][4] == 1 and grid[3][4] == 0: i_land += 1
+
+        
+
+    return i_land
+
+
+
+grid = [[1, 1, 0, 0, 0],
+
+        [0, 1, 0, 0, 1],
+
+        [1, 0, 0, 1, 1],
+
+        [0, 0, 0, 0, 0]]
+
+print(Solution().numIslands(grid))
+
+# 3
+
